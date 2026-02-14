@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi | Pengadilan Agama Pamekasan</title>
+    <meta name="description" content="Struktur Organisasi Pengadilan Agama Pamekasan Kelas IB.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'pa-green': '#064e3b',
+                        'pa-gold': '#d97706',
+                        'pa-light': '#f0fdf4',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'ui-sans-serif', 'system-ui'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Marquee Animation */
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        .animate-marquee {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee 35s linear infinite;
+        }
+
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 font-sans text-gray-900 overflow-x-hidden text-left">
+
+    <!-- Floating Social Sidebar -->
+    <div class="floating-social-sidebar hidden lg:flex">
+        <a href="https://facebook.com/papamekasan" target="_blank" class="social-side-item facebook" title="Facebook">
+            <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/pa_pamekasan" target="_blank" class="social-side-item instagram"
+            title="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://youtube.com/@papamekasan" target="_blank" class="social-side-item youtube" title="YouTube">
+            <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://twitter.com/papamekasan" target="_blank" class="social-side-item twitter" title="Twitter">
+            <i class="fab fa-twitter"></i>
+        </a>
+    </div>
+
+    <!-- Floating LARISA (WA) -->
+    <a href="https://wa.me/6287777405006" target="_blank" class="floating-wa-btn" title="Chat dengan LARISA">
+        <span class="wa-label">Tanya LARISA (WA)</span>
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Top Gov Bar -->
+    <div class="top-bar-gov">
+        <div class="container mx-auto px-4 md:px-8 flex flex-wrap justify-between items-center gap-2">
+            <div class="flex items-center gap-4">
+                <div class="flex items-center">
+                    <span class="mr-2 text-gray-500 uppercase tracking-tighter">Aksesibilitas:</span>
+                    <button class="accessibility-btn" onclick="adjustFontSize('normal')" title="Font Normal">A</button>
+                    <button class="accessibility-btn text-lg" onclick="adjustFontSize('large')"
+                        title="Font Besar">A+</button>
+                    <button class="accessibility-btn" onclick="toggleContrast()" title="Kontras Tinggi">
+                        <i class="fas fa-eye"></i>
+                    </button>
+                </div>
+                <div class="hidden sm:flex items-center gap-2 border-l border-gray-300 pl-4">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="ID"
+                        class="w-4 h-3">
+                    <span class="text-gray-600">IDN</span>
+                </div>
+            </div>
+            <div class="flex items-center gap-2 bg-white px-3 py-1 rounded-full border border-gray-200">
+                <i class="fas fa-search text-gray-400"></i>
+                <input type="text" placeholder="Cari informasi..."
+                    class="bg-transparent border-none outline-none text-xs w-32 md:w-48">
+            </div>
+        </div>
+    </div>
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-gray-100 py-4 shadow-sm text-left">
+        <div
+            class="container mx-auto px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-left">
+            <div class="flex items-center gap-4 text-left">
+                <img src="assets/logo.jpg" alt="Logo PA" class="w-16 h-16 md:w-20 md:h-20 object-contain">
+                <div class="text-left">
+                    <p class="text-xs md:text-sm font-medium text-pa-gold tracking-widest uppercase text-left">Mahkamah
+                        Agung RI</p>
+                    <h1 class="text-xl md:text-2xl font-bold text-pa-green leading-tight text-left">Pengadilan Agama
+                        Pamekasan</h1>
+                </div>
+            </div>
+            <div class="hidden lg:flex items-center gap-8 text-sm">
+                <div class="flex items-center gap-3">
+                    <div class="bg-pa-light p-2 rounded-full text-pa-green">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <p class="text-gray-500 text-xs">Lokasi</p>
+                        <p class="font-semibold">Jl. Raya Tlanakan, Pamekasan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Professional Navigation Menu -->
+    <div class="nav-pro-wrapper">
+        <div class="container mx-auto">
+            <ul class="nav-pro-container">
+                <li class="nav-pro-item">
+                    <a href="index.html" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Beranda</span>
+                        <span class="nav-pro-subtext">Halaman Utama</span>
+                    </a>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Profil Pengadilan</span>
+                        <span class="nav-pro-subtext">Tentang Satuan Kerja</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="visi-misi.html" class="nav-pro-dropdown-link">Visi dan Misi</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/tugas-pokok-dan-fungsi-pengadilan"
+                            target="_blank" class="nav-pro-dropdown-link">Tugas Pokok dan Fungsi Pengadilan</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/wilayah-yurisdiksi" target="_blank"
+                            class="nav-pro-dropdown-link">Wilayah Yurisdiksi</a>
+                        <a href="struktur-organisasi.html" class="nav-pro-dropdown-link">Struktur Organisasi</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/sejarah-pengadilan" target="_blank"
+                            class="nav-pro-dropdown-link">Sejarah Pengadilan</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/daftar-nama-mantan-pimpinan" target="_blank"
+                            class="nav-pro-dropdown-link">Daftar Nama Mantan Pimpinan</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/agenda-kegiatan" target="_blank"
+                            class="nav-pro-dropdown-link">Agenda Kegiatan</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/alamat-dan-kontak-pengadilan" target="_blank"
+                            class="nav-pro-dropdown-link">Alamat dan Kontak Pengadilan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/profil-pejabat-dan-pegawai" target="_blank"
+                            class="nav-pro-dropdown-link">PPNPN</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Informasi Umum</span>
+                        <span class="nav-pro-subtext">Info Pengadilan</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/pages/sop-pengadilan" target="_blank"
+                            class="nav-pro-dropdown-link">SOP Pengadilan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/program-kerja-tahunan" target="_blank"
+                            class="nav-pro-dropdown-link">Program Kerja Tahunan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/laporan-tahunan" target="_blank"
+                            class="nav-pro-dropdown-link">Laporan Tahunan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/formulir-penyelesaian-gugatan-sederhana"
+                            target="_blank" class="nav-pro-dropdown-link">Formulir Penyelesaian Gugatan Sederhana</a>
+                        <a href="https://pa-pamekasan.go.id/pages/rencana-pemeliharaan" target="_blank"
+                            class="nav-pro-dropdown-link">Rencana Pemeliharaan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/sk-dan-sop-pengelola-website" target="_blank"
+                            class="nav-pro-dropdown-link">SK dan SOP Pengelola Website</a>
+                        <a href="https://pa-pamekasan.go.id/pages/senyum" target="_blank"
+                            class="nav-pro-dropdown-link">Senyum</a>
+                        <a href="https://pa-pamekasan.go.id/pages/prosedur-dan-sop-layanan-disabilitas" target="_blank"
+                            class="nav-pro-dropdown-link">Prosedur dan SOP Layanan Disabilitas</a>
+                        <a href="https://pa-pamekasan.go.id/pages/sk-ppid" target="_blank"
+                            class="nav-pro-dropdown-link">SK PPID</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Kepaniteraan</span>
+                        <span class="nav-pro-subtext">Info Kepaniteraan</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/pages/sistem-informasi-penelusuran-perkara" target="_blank"
+                            class="nav-pro-dropdown-link">SIPP</a>
+                        <a href="https://pa-pamekasan.go.id/pages/e-court" target="_blank"
+                            class="nav-pro-dropdown-link">e-Court</a>
+                        <a href="https://pa-pamekasan.go.id/pages/direktori-putusan" target="_blank"
+                            class="nav-pro-dropdown-link">Direktori Putusan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/tingkat-pertama" target="_blank"
+                            class="nav-pro-dropdown-link">Prosedur Berperkara</a>
+                        <a href="https://pa-pamekasan.go.id/pages/hak-hak-pencari-keadilan" target="_blank"
+                            class="nav-pro-dropdown-link">Hak-Hak Pencari Keadilan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/agenda-jadwal-persidangan" target="_blank"
+                            class="nav-pro-dropdown-link">Agenda Jadwal Sidang</a>
+                        <a href="https://pa-pamekasan.go.id/pages/prosedur-mediasi" target="_blank"
+                            class="nav-pro-dropdown-link">Mediasi</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/biaya-proses-perkara" target="_blank"
+                            class="nav-pro-dropdown-link">Biaya Perkara</a>
+                        <a href="https://pa-pamekasan.go.id/pages/radius-biaya-panggilan" target="_blank"
+                            class="nav-pro-dropdown-link">Radius Biaya Panggilan</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/pos-bantuan-hukum" target="_blank"
+                            class="nav-pro-dropdown-link">Pos Bantuan Hukum</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Kesekretariatan</span>
+                        <span class="nav-pro-subtext">Info Kesekretariatan</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/pages/profil-pejabat-dan-pegawai" target="_blank"
+                            class="nav-pro-dropdown-link">Profil Pejabat & Pegawai</a>
+                        <a href="https://pa-pamekasan.go.id/pages/lhkpn" target="_blank"
+                            class="nav-pro-dropdown-link">LHKPN / LHKASN</a>
+                        <a href="https://pa-pamekasan.go.id/pages/daftar-isian-pelaksanaan-anggaran-dipa"
+                            target="_blank" class="nav-pro-dropdown-link">DIPA</a>
+                        <a href="https://pa-pamekasan.go.id/halaman/detail/laporan-realisasi-anggaran-lra"
+                            target="_blank" class="nav-pro-dropdown-link">LRA</a>
+                        <a href="https://pa-pamekasan.go.id/pages/asset-dan-inventaris" target="_blank"
+                            class="nav-pro-dropdown-link">Aset & Inventaris</a>
+                        <a href="https://pa-pamekasan.go.id/pages/rencana-strategis-renstra" target="_blank"
+                            class="nav-pro-dropdown-link">RENSTRA</a>
+                        <a href="https://pa-pamekasan.go.id/pages/rencana-kinerja-tahunan-rkt" target="_blank"
+                            class="nav-pro-dropdown-link">RKT</a>
+                        <a href="https://pa-pamekasan.go.id/pages/laporan-kinerja-instansi-pemerintah-lkjip"
+                            target="_blank" class="nav-pro-dropdown-link">LKJIP</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Layanan Publik</span>
+                        <span class="nav-pro-subtext">Informasi/Pengaduan</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/" target="_blank" class="nav-pro-dropdown-link">PTSP
+                            Online</a>
+                        <a href="https://wa.me/6287777405006" target="_blank" class="nav-pro-dropdown-link">LARISA
+                            (WA)</a>
+                        <a href="gugatan-mandiri.html" class="nav-pro-dropdown-link">Gugatan Mandiri</a>
+                        <a href="https://siwas.mahkamahagung.go.id/" target="_blank" class="nav-pro-dropdown-link">SIWAS
+                            MARI</a>
+                        <a href="#" class="nav-pro-dropdown-link">Prosedur Pengaduan</a>
+                        <a href="#" class="nav-pro-dropdown-link">Kode Etik</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Publikasi</span>
+                        <span class="nav-pro-subtext">Publikasi</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/pages/arsip-berita" target="_blank"
+                            class="nav-pro-dropdown-link">Arsip Berita</a>
+                        <a href="https://pa-pamekasan.go.id/pages/arsip-pengumuman" target="_blank"
+                            class="nav-pro-dropdown-link">Arsip Pengumuman</a>
+                        <a href="https://pa-pamekasan.go.id/pages/regulasi-aturan" target="_blank"
+                            class="nav-pro-dropdown-link">Regulasi Aturan</a>
+                        <a href="https://pa-pamekasan.go.id/pages/video-ptsp" target="_blank"
+                            class="nav-pro-dropdown-link">Video PTSP</a>
+                    </div>
+                </li>
+                <li class="nav-pro-item">
+                    <a href="#" class="nav-pro-link">
+                        <span class="nav-pro-main-text">Informasi Lainnya</span>
+                        <span class="nav-pro-subtext">Info Lainnya</span>
+                    </a>
+                    <div class="nav-pro-dropdown">
+                        <a href="https://pa-pamekasan.go.id/pages/statistik-jumlah-pengunjung-website" target="_blank"
+                            class="nav-pro-dropdown-link">Statistik Pengunjung</a>
+                        <a href="https://pa-pamekasan.go.id/pages/tautan-terkait" target="_blank"
+                            class="nav-pro-dropdown-link">Tautan Terkait</a>
+                        <a href="https://pa-pamekasan.go.id/pages/tautan-ke-situs-sosial-media" target="_blank"
+                            class="nav-pro-dropdown-link">Media Sosial</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 glass-nav shadow-sm">
+        <div class="container mx-auto px-4 md:px-8">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex space-x-8">
+                    <a href="index.html"
+                        class="font-medium text-gray-600 hover:text-pa-green transition-colors">Beranda</a>
+                    <a href="visi-misi.html"
+                        class="font-medium text-gray-600 hover:text-pa-green transition-colors">Visi & Misi</a>
+                    <a href="struktur-organisasi.html"
+                        class="font-semibold text-pa-green border-b-2 border-pa-gold pb-1 transition-colors">Struktur</a>
+                    <a href="foto-karyawan.html"
+                        class="font-medium text-gray-600 hover:text-pa-green transition-colors">SDM & Karyawan</a>
+                    <a href="gugatan-mandiri.html"
+                        class="font-medium text-gray-600 hover:text-pa-green transition-colors">Gugatan Mandiri</a>
+                </div>
+                <button class="md:hidden text-pa-green text-2xl mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Running Text Strip -->
+    <div class="bg-pa-light border-b border-emerald-100 overflow-hidden py-2 marquee-container text-left">
+        <div class="animate-marquee text-pa-green font-medium text-sm md:text-base">
+            Selamat Datang di Website Resmi Pengadilan Agama Pamekasan Anda Memasuki Zona Integritas Wilayah Bebas
+            Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM)
+            &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;
+            Selamat Datang di Website Resmi Pengadilan Agama Pamekasan Anda Memasuki Zona Integritas Wilayah Bebas
+            Korupsi (WBK) dan Wilayah Birokrasi Bersih dan Melayani (WBBM)
+            &nbsp;&nbsp;&nbsp;&nbsp;&bull;&nbsp;&nbsp;&nbsp;&nbsp;
+        </div>
+    </div>
+
+    <!-- Hero Sub-page -->
+    <section class="relative py-24 bg-pa-green overflow-hidden text-center">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <img src="assets/pa_pamekasan_official.jpg" alt="Overlay" class="w-full h-full object-cover">
+        </div>
+        <div class="container mx-auto px-4 md:px-8 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 reveal">Struktur Organisasi</h2>
+            <p class="text-emerald-100 text-lg reveal" style="transition-delay: 100ms;">Susunan Kepemimpinan Pengadilan
+                Agama Pamekasan Kelas IB</p>
+        </div>
+    </section>
+
+    <!-- Content -->
+    <section class="py-20 text-center">
+        <div class="container mx-auto px-4 md:px-8 max-w-6xl text-center">
+
+            <div
+                class="bg-white rounded-3xl shadow-xl shadow-gray-200/50 p-8 md:p-12 relative overflow-hidden reveal text-center">
+                <div class="absolute top-0 left-0 w-full h-2 bg-pa-gold"></div>
+
+                <div class="flex flex-col items-center mb-12 text-center">
+                    <div
+                        class="w-16 h-16 bg-pa-light text-pa-gold rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-sm">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3 class="text-3xl font-bold text-pa-green mb-4">Bagan Organisasi</h3>
+                    <p class="text-gray-500 font-medium">Klik pada gambar untuk memperbesar tampilan</p>
+                </div>
+
+                <!-- Structure Chart Container -->
+                <div
+                    class="bg-white rounded-3xl shadow-xl p-4 md:p-8 reveal border border-gray-100 relative group overflow-hidden">
+                    <div
+                        class="absolute inset-0 bg-pa-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                            <div class="text-left">
+                                <h3 class="text-2xl font-bold text-pa-green">Bagan Struktur Organisasi</h3>
+                                <p class="text-gray-500">Periode Tahun 2024</p>
+                            </div>
+                            <a href="assets/struktur_organisasi_2024.png" target="_blank"
+                                class="flex items-center gap-2 px-6 py-3 bg-pa-gold text-white font-bold rounded-xl hover:bg-amber-700 transition-all shadow-lg shadow-amber-700/20">
+                                <i class="fas fa-expand-alt"></i> Lihat Fullscreen
+                            </a>
+                        </div>
+
+                        <div
+                            class="rounded-2xl overflow-hidden border border-gray-100 shadow-inner bg-gray-50 p-2 md:p-4">
+                            <img src="assets/struktur_organisasi_2024.png"
+                                alt="Struktur Organisasi Pengadilan Agama Pamekasan"
+                                class="w-full h-auto cursor-zoom-in hover:scale-[1.02] transition-transform duration-700"
+                                onclick="window.open(this.src, '_blank')">
+                        </div>
+
+                        <div class="mt-8 text-sm text-gray-500 italic">
+                            <p><i class="fas fa-info-circle mr-2 text-pa-gold"></i> Klik gambar di atas untuk melihat
+                                dalam ukuran penuh dan resolusi tinggi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 flex items-center justify-center gap-4 text-gray-400 italic text-sm">
+                    <i class="fas fa-info-circle text-pa-green"></i>
+                    <span>Tampilan struktur organisasi resmi periode 2024/2025</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-pa-green text-white pt-20 pb-10 text-left">
+        <div class="container mx-auto px-4 md:px-8 text-left">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-20 text-left">
+                <div>
+                    <div class="flex items-center gap-4 mb-8">
+                        <div class="bg-white p-1 rounded-lg"><img src="assets/logo.jpg" alt="Logo" class="w-12 h-12">
+                        </div>
+                        <h5 class="text-xl font-bold text-left">PA Pamekasan</h5>
+                    </div>
+                    <p class="text-emerald-100 leading-relaxed text-left">Berkomitmen untuk memberikan pelayanan hukum
+                        yang murni dan berkeadilan bagi seluruh masyarakat Pamekasan.</p>
+                </div>
+                <div>
+                    <h5 class="text-xl font-bold mb-8 relative inline-block pb-2 text-left">Navigasi<span
+                            class="absolute bottom-0 left-0 w-12 h-1 bg-pa-gold rounded-full"></span></h5>
+                    <ul class="space-y-4 text-left">
+                        <li><a href="index.html"
+                                class="text-emerald-100 hover:text-white transition-colors text-left">Beranda</a></li>
+                        <li><a href="visi-misi.html"
+                                class="text-emerald-100 hover:text-white transition-colors text-left">Visi & Misi</a>
+                        </li>
+                        <li><a href="struktur-organisasi.html"
+                                class="text-emerald-100 hover:text-white transition-colors text-left">Struktur
+                                Organisasi</a></li>
+                        <li><a href="foto-karyawan.html"
+                                class="text-emerald-100 hover:text-white transition-colors text-left">Foto Karyawan</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-left">
+                    <h5 class="text-xl font-bold mb-8 relative inline-block pb-2 text-left">Kontak Kami<span
+                            class="absolute bottom-0 left-0 w-12 h-1 bg-pa-gold rounded-full"></span></h5>
+                    <p class="text-emerald-100 mb-4 text-left"><i class="fas fa-map-marker-alt text-pa-gold mr-3"></i>
+                        Jl. Raya Tlanakan No. 69371, Pamekasan</p>
+                    <p class="text-emerald-100 text-left"><i class="fas fa-phone text-pa-gold mr-3"></i> 0877-7740-5006
+                    </p>
+                </div>
+            </div>
+            <div class="border-t border-white/10 pt-10 text-center text-emerald-200 text-sm">
+                © 2026 Pengadilan Agama Pamekasan. Hak Cipta Dilindungi.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.onload = reveal;
+    </script>
+</body>
+
+</html>

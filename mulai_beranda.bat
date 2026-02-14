@@ -1,0 +1,6 @@
+@echo off
+echo Memperbarui Berita Terbaru...
+powershell -ExecutionPolicy Bypass -File ".\news_scraper.ps1"
+echo Membuka Beranda...
+start index.html
+exit
